@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Input.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_shape.h>
 #include <SDL2/SDL_video.h>
@@ -13,7 +14,7 @@ public:
 
     bool init();
     void swap();
-    void pollEvents();
+    void pollEvents(Input& input);
 
     SDL_Window* getSDLWindow() const { return m_window; }
     SDL_GLContext getGLContext() const { return m_glContext; }

@@ -19,7 +19,8 @@ void Engine::run()
         float dt = float(now - m_lastTime);
         m_lastTime = now;
 
-        m_window.pollEvents();
+        m_input.beginFrame();
+        m_window.pollEvents(m_input);
         update(dt);
         render(dt);
         m_window.swap();

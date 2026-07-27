@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "Input.h"
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <SDL2/SDL.h>
@@ -8,7 +9,8 @@
 #include <string>
 
 Window::Window(const std::string& title, int w, int h): m_title(title), m_width(w), m_height(h)
-{};
+{
+};
 
 Window::~Window()
 {
@@ -32,11 +34,12 @@ void Window::swap()
     SDL_GL_SwapWindow(m_window);
 }
 
-void Window::pollEvents()
+void Window::pollEvents(Input& input)
 {
     SDL_Event event;
     while(SDL_PollEvent(&event))
     {
+        input.handleEvent(event);
         switch(event.type)
         {
             case SDL_QUIT:
