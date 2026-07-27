@@ -1,4 +1,6 @@
 #pragma once
+#include "Camera.h"
+#include "Input.h"
 #include "Window.h"
 
 class Engine
@@ -8,6 +10,8 @@ class Engine
         void run();
     private:
         Window& m_window;
+        Input m_input;
+        Camera m_camera;
         double m_lastTime = 0;
         double m_fpsTimer = 0;
         int m_fps = 0;
